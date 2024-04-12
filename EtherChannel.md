@@ -56,7 +56,7 @@ exec-timeout 10 00
 end
 write
 ```
-<h2>Config PAgP</h2>
+<h2>Configuração PAgP</h2>
 
 <p>A tabela abaixo mostra a combinação de modos PAgP e se estabelece conexão ou não.</p>
 
@@ -181,3 +181,10 @@ A figura mostra o resultado dentro de cada Switch, você nota que NÃO há conex
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-AA.png?raw=true">
 </p>
 <br>
+
+<h2>Conclusão do PAgP</h2>
+
+Como mostrado nas duas primeiras configurações, o estabelecimento de canal só é bem sucedido quando o modo é desirable/desirable ou desirable/auto; auto/desirable. Entretanto, caso o modo seja auto/auto, não haverá sucesso em estabelecer o canal.</p>
+<br>
+
+<h2>Configuração LACP</h2>
