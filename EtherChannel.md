@@ -76,8 +76,6 @@ Dentro da configuração global em cada switch, estabeleça os comandos abaixo p
 >modo PAgP desirable coloca uma interface em um estado de negociação ativo, no qual a interface inicia negociações com outras interfaces enviando pacotes PAgP.
 
 ```
-enable
-configure terminal
 interface range gigabitEthernet 0/1-2
 channel-group 1 mode desirable
 exit
