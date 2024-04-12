@@ -233,3 +233,4 @@ A figura abaixo mostra o resultado dentro de cada Switch, você nota que há con
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_2-AA.png?raw=true">
 </p>
 <br>
+
