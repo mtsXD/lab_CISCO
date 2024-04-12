@@ -60,7 +60,7 @@ write
 
 <p>A tabela abaixo mostra a combinação de modos PAgP e se estabelece conexão ou não.</p>
 
-### PAgP modes
+### Modo PAgP
 
 |Switch_1|Switch_2|Estabelecimento de canal|
 |:------:|:------:|:----------------------:|
@@ -188,3 +188,14 @@ Como mostrado nas duas primeiras configurações, o estabelecimento de canal só
 <br>
 
 <h2>Configuração LACP</h2>
+
+<p>A tabela abaixo mostra a combinação de modos LACP e se estabelece conexão ou não.</p>
+
+### Modo LACP
+
+|Switch_1|Switch_2|Estabelecimento de canal|
+|:------:|:------:|:----------------------:|
+|active|active|SIM|
+|active|passive|SIM|
+|passive|active|SIM|
+|passive|passive|NÃO|
