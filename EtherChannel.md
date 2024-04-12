@@ -71,10 +71,12 @@ write
 
 ### Estabelicemento de canal PAgP em ambos desirable:
 
-Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
+
 >
 >modo PAgP desirable coloca uma interface em um estado de negociação ativo, no qual a interface inicia negociações com outras interfaces enviando pacotes PAgP.
 
+Forneça esses comandos nos dois Switches.
 ```
 interface range gigabitEthernet 0/1-2
 channel-group 1 mode desirable
@@ -84,3 +86,19 @@ switchport mode trunk
 end
 write
 ```
+
+Para verificar se ambos os Switches estão com o canal PAgP estabelecido negociação ativa, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
+A figura mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como (SU) camada 2 em uso.</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_1.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2.png?raw=true">
+</p>
