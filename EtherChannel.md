@@ -69,7 +69,7 @@ write
 |auto|desirable|SIM|
 |auto|auto|NÃO|
 
-### Estabelicemento de canal PAgP em ambos desirable:
+### Estabelecimento de canal PAgP em ambos desirable:
 
 Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
 
@@ -103,4 +103,7 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2.png?raw=true">
 </p>
 
-### Estabelicemento de canal PAgP em dispositivo como desirable e outro como auto:
+### Estabelecimento de canal PAgP em dispositivo como desirable e outro como auto:
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP com um canal desirable e outro auto. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
+
