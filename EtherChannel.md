@@ -69,9 +69,9 @@ write
 |auto|desirable|SIM|
 |auto|auto|NÃO|
 
-### Estabelecimento de canal PAgP em ambos desirable:
+<h3>Estabelecimento de canal PAgP em ambos desirable:</h3>
 
-Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
 
 >
 >modo PAgP desirable coloca uma interface em um estado de negociação ativo, no qual a interface inicia negociações com outras interfaces enviando pacotes PAgP.
@@ -104,9 +104,9 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
 </p>
 <br>
 
-### Estabelecimento de canal PAgP em dispositivo como desirable e outro como auto:
+<h3>Estabelecimento de canal PAgP em dispositivo como desirable e outro como auto:</h3>
 
-Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP com um canal desirable e outro auto. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo PAgP com um canal desirable e outro auto. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
 
 >
 > O modo auto coloca a interface como negociação passiva, ou seja, não há comunicação, a interface só responde os pacotes PAgP que recebe.
@@ -148,5 +148,36 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
 <h2>Vizualização no Switch 2</h2>
 <p align="center">
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-DA.png?raw=true">
+</p>
+<br>
+
+<h3>Estabelecimento de canal PAgP em ambos auto:</h3>
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo PAgP auto. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
+
+### Forneça esses comandos nos dois Switches.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode auto
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+Para verificar se ambos os Switches estão com o canal PAgP estabelecido negociação passiva, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
+A figura mostra o resultado dentro de cada Switch, você nota que NÃO há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em Down (SD).</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_1-AA.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-AA.png?raw=true">
 </p>
 <br>
