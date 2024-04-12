@@ -56,7 +56,7 @@ exec-timeout 10 00
 end
 write
 ```
-<h2>Config PAgP 2</h2>
+<h2>Config PAgP</h2>
 
 <p>A tabela abaixo mostra a combinação de modos PAgP e se estabelece conexão ou não.</p>
 
@@ -102,3 +102,5 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
 <p align="center">
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2.png?raw=true">
 </p>
+
+### Estabelicemento de canal PAgP em dispositivo como desirable e outro como auto:
