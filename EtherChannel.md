@@ -199,3 +199,37 @@ Como mostrado nas duas primeiras configurações, o estabelecimento de canal só
 |active|passive|SIM|
 |passive|active|SIM|
 |passive|passive|NÃO|
+
+<h3>Estabelecimento de canal LACP em ambos active:</h3>
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo LACP active. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
+
+>
+>modo LACP active deixa a interface em negociação ativa, ou seja, inicia a negociação enviando pacotes LACP.
+
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode active
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+
+Para verificar se ambos os Switches estão com o canal LACP estabelecido negociação ativa, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
+A figura abaixo mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em uso (SU).</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_1-AA.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_2-AA.png?raw=true">
+</p>
+<br>
