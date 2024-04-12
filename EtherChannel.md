@@ -92,7 +92,7 @@ Para verificar se ambos os Switches estão com o canal PAgP estabelecido negocia
 ```
 show etherchannel summary
 ```
-A figura mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como (SU) camada 2 em uso.</p>
+A figura mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em uso (SU).</p>
 
 <h2>Vizualização no Switch 1</h2>
 <p align="center">
@@ -138,3 +138,15 @@ Para verificar se os Switches estão com o canal PAgP estabelecido como um em ne
 ```
 show etherchannel summary
 ```
+
+A figura mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em uso (SU).</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_1-DA.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-DA.png?raw=true">
+</p>
+<br>
