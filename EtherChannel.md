@@ -60,7 +60,7 @@ write
 
 <p>A tabela abaixo mostra a combinação de modos PAgP e se estabelece conexão ou não.</p>
 
-PAgP modes
+### PAgP modes
 
 |Switch_1|Switch_2|Estabelecimento de canal|
 |:------:|:------:|:----------------------:|
@@ -69,3 +69,20 @@ PAgP modes
 |auto|desirable|SIM|
 |auto|auto|NÃO|
 
+### Estabelicemento de canal PAgP em ambos desirable:
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP desirable. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
+>
+>modo PAgP desirable coloca uma interface em um estado de negociação ativo, no qual a interface inicia negociações com outras interfaces enviando pacotes PAgP.
+
+```
+enable
+configure terminal
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode desirable
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
