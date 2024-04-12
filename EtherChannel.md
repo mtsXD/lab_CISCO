@@ -76,7 +76,7 @@ Dentro da configuração global em cada switch, estabeleça os comandos abaixo p
 >
 >modo PAgP desirable coloca uma interface em um estado de negociação ativo, no qual a interface inicia negociações com outras interfaces enviando pacotes PAgP.
 
-Forneça esses comandos nos dois Switches.
+### Forneça esses comandos nos dois Switches.
 ```
 interface range gigabitEthernet 0/1-2
 channel-group 1 mode desirable
@@ -102,8 +102,39 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
 <p align="center">
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2.png?raw=true">
 </p>
+<br>
 
 ### Estabelecimento de canal PAgP em dispositivo como desirable e outro como auto:
 
 Dentro da configuração global em cada switch, estabeleça os comandos abaixo para tornalo PAgP com um canal desirable e outro auto. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
 
+>
+> O modo auto coloca a interface como negociação passiva, ou seja, não há comunicação, a interface só responde os pacotes PAgP que recebe.
+
+No caso desse exemplo, o Switch_1 será estabelecido como desirable e o Switch_2 como auto, mas a decisão partirá de você, ou no que você julga ser necessário para ser desirable ou não.</p>
+
+### Forneça esses comandos no Switch_1.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode desirable
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+### Forneça esses comandos no Switch_2.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode auto
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+Para verificar se os Switches estão com o canal PAgP estabelecido como um em negociação ativa e outro como passiva, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
