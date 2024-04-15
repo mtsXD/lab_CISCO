@@ -11,6 +11,11 @@ Crie 2 Switches e conecte-os em duas portas físicas cada de sua preferência, c
 
 No terminal de cada Swtich, execute a sequencia de comandos mostradas abaixo no modo de configuração Global:</p>
 <h2>Config Switch 1</h2>
+<br>
+
+>
+>Uma observação, as senhas dos comandos "enable secret" e "password" são de sua preferência, o que coloquei é apenas um exemplo e não é uma boa prática, aconselho que coloque de forma que contenha números, letras e símbolos e que ultrapasse 8 caracteres.
+<br>
 
 ```
 enable
@@ -234,3 +239,49 @@ A figura abaixo mostra o resultado dentro de cada Switch, você nota que há con
 </p>
 <br>
 
+<h3>Estabelecimento de canal LACP em dispositivo como active e outro como passive:</h3>
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo LACP com um canal em modo active e outro em modo passive. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.
+
+>
+> O modo passive deixa a interface em modo passiva, ou seja, respone os pacotes LACP enviados, mas não inicia negociação.
+
+No caso desse exemplo, o Switch_1 será estabelecido como active e o Switch_2 como passive, mas a decisão partirá de você, ou no que você julga ser necessário para ser active ou não.</p>
+
+### Forneça esses comandos no Switch_1.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode active
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+### Forneça esses comandos no Switch_2.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode passive
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+Para verificar se os Switches estão com o canal LACP estabelecido como um em negociação ativa e outro como passiva, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
+
+A figura mostra o resultado dentro de cada Switch, você nota que há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em uso (SU).</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_1-DA.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-DA.png?raw=true">
+</p>
+<br>
