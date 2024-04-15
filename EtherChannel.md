@@ -278,10 +278,10 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
 
 <h2>Vizualização no Switch 1</h2>
 <p align="center">
-  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_1-DA.png?raw=true">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_1-AP.png?raw=true">
 </p>
 <h2>Vizualização no Switch 2</h2>
 <p align="center">
-  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-PAgP_Switch_2-DA.png?raw=true">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_2-AP.png?raw=true">
 </p>
 <br>
