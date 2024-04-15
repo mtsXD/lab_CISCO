@@ -285,3 +285,44 @@ A figura mostra o resultado dentro de cada Switch, você nota que há conexão, 
   <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_2-AP.png?raw=true">
 </p>
 <br>
+
+<h3>Estabelecimento de canal LACP em ambos passive:</h3>
+
+Dentro da configuração global em cada switch, estabeleça os comandos abaixo para torna-lo LACP passive. Coloque os comandos com base nas interfaces de portas que você conectou os dois switches, no caso do nosso exemplo será as gigabitEthernet 0/1 e gigabitEthernet 0/2.</p>
+
+### Forneça esses comandos nos dois Switches.
+```
+interface range gigabitEthernet 0/1-2
+channel-group 1 mode passive
+exit
+interface port-channel 1
+switchport mode trunk 
+end
+write
+```
+Para verificar se ambos os Switches estão com o canal LACP estabelecido negociação passiva, usa-se dentro da interface do usuário o comando mostrado abaixo:</p>
+
+```
+show etherchannel summary
+```
+A figura mostra o resultado dentro de cada Switch, você nota que NÃO há conexão, quando ao lado do numero no Port-channel (Po1) está como camada 2 em Down (SD).</p>
+
+<h2>Vizualização no Switch 1</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_1-PP.png?raw=true">
+</p>
+<h2>Vizualização no Switch 2</h2>
+<p align="center">
+  <img width="500" src="https://github.com/mtsXD/lab_CISCO/blob/main/IMGS_PT/EtherChannel-sumary-LACP_Switch_2-PP.png?raw=true">
+</p>
+<br>
+
+<h2>Conclusão do LACP</h2>
+
+Como mostrado nas duas primeiras configurações, o estabelecimento de canal só é bem sucedido quando o modo é active/active ou active/passive; passive/active. Entretanto, caso o modo seja passive/passive, não haverá sucesso em estabelecer o canal.</p>
+<br>
+
+<p align="center"> Obrigado~ </p>
+<p align="center">
+  <img  src="https://media.tenor.com/EpgQmvLA3rUAAAAC/misato-katsuragi-neon-genesis-evangelion.gif">
+</p>
