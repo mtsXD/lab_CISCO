@@ -27,3 +27,15 @@ O ato de separar, é por conta das configurações DHCPv4 no roteador não apres
 |R_1|192.168.11.1|Giga 0/1|Manual|
 |S_1|192.168.10.2|Giga 0/1|Manual|
 |S_2|192.168.11.2|Giga 0/1|Manual|
+
+A ideia desse laboratório é que o Roteador R_1 aplique os IPv4 de maneira automática no PC_1 e PC_2, nesse cenário, pode não fazer tanto sentido essa função, mas imagina uma escala de dezenas ou até mesmo de centenas de dispositivos, é muito mais eficiente trabalhar de maneira automática.</p>
+
+<h2>Configuração dos Switchs.</h2>
+<h3>Configuração S_1</h3>
+
+>
+>Dentro do CLI do Switch, execute os seguintes comandos:
+
+```
+
+```
