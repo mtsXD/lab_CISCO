@@ -37,5 +37,100 @@ A ideia desse laboratório é que o Roteador R_1 aplique os IPv4 de maneira auto
 >Dentro do CLI do Switch, execute os seguintes comandos:
 
 ```
+enable
+configure terminal
+vlan 199
+name ADN
+exit
+vlan 666
+name LIXO
+exit
+vlan 999
+name Nativa
+exit
+interface vlan 199
+ip address 192.168.10.2 255.255.255.0
+no shutdown
+interface gigabitEthernet 0/1
+switchport mode access
+switchport access vlan 199
+interface gigabitEthernet 0/2
+switchport mode access
+switchport access vlan 666
+shutdown
+interface range fastEthernet 0/2-24
+switchport mode access
+switchport access vlan 666
+shutdown
+hostname S_1
+enable secret 12345
+service password-encryption 
+banner motd #Acesso somente para pessoas autorizadas.#
+line console 0
+password 54321
+login
+logging synchronous
+exec-timeout 5 00
+exit
+line vty 0 15
+password 54321
+login
+logging synchronous
+exec-timeout 10 00
+exit
+ip default-gateway 192.168.10.1
+end
+write
+```
 
+<h3>Configuração S_2</h3>
+
+>
+>Dentro do CLI do Switch, execute os seguintes comandos:
+
+```
+enable
+configure terminal
+vlan 199
+name ADN
+exit
+vlan 666
+name LIXO
+exit
+vlan 999
+name Nativa
+exit
+interface vlan 199
+ip address 192.168.11.2 255.255.255.0
+no shutdown
+interface gigabitEthernet 0/1
+switchport mode access
+switchport access vlan 199
+interface gigabitEthernet 0/2
+switchport mode access
+switchport access vlan 666
+shutdown
+interface range fastEthernet 0/3-24
+switchport mode access
+switchport access vlan 666
+shutdown
+hostname S_2
+enable secret 12345
+service password-encryption 
+banner motd #Acesso somente para pessoas autorizadas.#
+line console 0
+password 54321
+login
+logging synchronous
+exec-timeout 5 00
+exit
+line vty 0 15
+password 54321
+login
+logging synchronous
+exec-timeout 10 00
+exit
+ip default-gateway 192.168.11.1
+end
+write
 ```
